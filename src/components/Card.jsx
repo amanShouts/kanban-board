@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../css/Card.css"
 import { useDrag, useDrop } from 'react-dnd';
 import { useDispatch } from "react-redux";
@@ -9,6 +9,11 @@ export function Card({ cardname, totalObj, highlight, taskname, index }) {
     const dispatch = useDispatch()
     // const dragRef = useRef(null)
     const [cardDesc, setCardDesc] = useState("")
+    const descBox = useRef(null)
+
+    useEffect(() => {
+        descBox.current.textContent = totalObj.carddesc
+    }, [totalObj.carddesc])
 
     const [{ isDragging }, drag] = useDrag({
 
@@ -34,8 +39,7 @@ export function Card({ cardname, totalObj, highlight, taskname, index }) {
             <p className="card_main_name">
                 {cardname}
             </p>
-            <div contentEditable="true" className="card_main_details" onInput={(e) => storeDesc(e)}>  </div>
+            <div contentEditable="true" className="card_main_details" onInput={(e) => storeDesc(e)} ref={descBox}>  </div>
         </div >
     )
-    // style={previewObj.change == true ? { backgroundColor: previewObj.previewColor } : { backgroundColor: "" }}
 }

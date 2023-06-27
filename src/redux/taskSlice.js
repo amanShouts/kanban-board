@@ -8,12 +8,7 @@ export const taskSlice = createSlice({
             state.push(action.payload)
         },
         remove(state, action) {
-            console.log(action.payload, current(state), " before remove")
-            // let filtered_task = state.filter((elem) => {
-            //     if (elem.name != action.payload)
-            //         return true
-            //     return false
-            // })
+            // console.log(action.payload, current(state), " before remove")
             let delete_index = -1
             for (let index = 0; index < state.length; index++) {
                 if (state[index].name == action.payload) {
@@ -26,7 +21,7 @@ export const taskSlice = createSlice({
         addCard(state, action) {
 
             let { taskname, cardObj } = action.payload
-            console.log(taskname, cardObj, " inside adding card")
+            // console.log(taskname, cardObj, " inside adding card")
             //find task with name 
             let taskIndex = -1
             for (let i = 0; i < state.length; i++) {
@@ -42,7 +37,7 @@ export const taskSlice = createSlice({
         addCardIndex(state, action) {
 
             let { taskname, cardObj, index, dragIndex, dragTaskname } = action.payload
-            console.log(taskname, " inside add card indexxxxxxxxxxxxxxxxxxx", index, cardObj)
+            // console.log(taskname, " inside add card indexxxxxxxxxxxxxxxxxxx", index, cardObj)
 
             let taskIndex = -1
             for (let i = 0; i < state.length; i++) {
@@ -61,12 +56,13 @@ export const taskSlice = createSlice({
             }
 
             let obj = state[dragtaskIndex].cards[dragIndex];
-            console.log(obj, " objjjjjjjjjjjjjjjjjjjj thats picked with")
+            // console.log(obj, " objjjjjjjjjjjjjjjjjjjj thats picked with")
 
             state[taskIndex].cards.splice(index, 0, cardObj)
         },
         addEmptyPreview(state, action) {
-            console.log(action.payload, " yeah hai preview index")
+            // not enabled right now
+            // console.log(action.payload, " yeah hai preview index")
             let { taskname, index } = action.payload
             let taskIndex = -1
             for (let i = 0; i < state.length; i++) {
@@ -81,7 +77,7 @@ export const taskSlice = createSlice({
         addCardDescription(state, action) {
 
             let { taskname, cardname, carddesc } = action.payload
-            console.log(taskname, cardname, carddesc)
+            // console.log(taskname, cardname, carddesc)
             // find task
             let taskIndex = -1
             for (let i = 0; i < state.length; i++) {
@@ -110,7 +106,7 @@ export const taskSlice = createSlice({
         },
         deleteDraggedCard(state, action) {
             let { taskname, cardObj, dragIndex, dropTaskname, dropIndex } = action.payload
-            console.log(" doubt hai", taskname, cardObj, dragIndex, " inside delete draggeddddddddddddddddd")
+            // console.log(" doubt hai", taskname, cardObj, dragIndex, " inside delete draggeddddddddddddddddd")
 
             let taskIndex = -1
             for (let i = 0; i < state.length; i++) {
@@ -123,7 +119,6 @@ export const taskSlice = createSlice({
             if (taskname == dropTaskname) {
                 if (dropIndex > dragIndex) {
                     // dropping the same element below itself somehwere
-
                     //do nothing
                 }
                 else {
@@ -139,7 +134,7 @@ export const taskSlice = createSlice({
     }
 })
 
-console.log(taskSlice, "this is task slice", taskSlice.actions)
+// console.log(taskSlice, "this is task slice", taskSlice.actions)
 
 
 export const { add, remove, addCard, addCardIndex, addEmptyPreview, addCardDescription, deleteDraggedCard } = taskSlice.actions

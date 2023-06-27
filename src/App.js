@@ -13,7 +13,7 @@ function App() {
   function addTask() {
     // add Task component to the page 
     let taskName = inputRef.current.value
-    console.log(taskName)
+    // console.log(taskName)
     let obj = {
       name: taskName,
       cards: []
@@ -23,18 +23,21 @@ function App() {
   }
 
   return (
-    <div className='main'>
-      {
-        taskList.length > 0 &&
-        taskList.map((elem, index) => {
-          return <Task key={index} name={elem.name} cards={elem.cards} />
-        })
-      }
-      <div className="main_task_create">
-        <input ref={inputRef} placeholder="Task Name" />
-        <button onClick={addTask}>
-          Add Task
-        </button>
+    <div className="main_wrapper">
+      <h3 className="main_heading"> Kanban Board </h3>
+      <div className='main'>
+        {
+          taskList.length > 0 &&
+          taskList.map((elem, index) => {
+            return <Task key={index} name={elem.name} cards={elem.cards} />
+          })
+        }
+        <div className="main_task_create">
+          <input ref={inputRef} placeholder="Task Name" />
+          <button onClick={addTask}>
+            Add Task
+          </button>
+        </div>
       </div>
     </div>
   );

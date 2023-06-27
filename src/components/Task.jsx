@@ -22,7 +22,6 @@ export function Task({ name, cards }) {
         drop: (item, monitor) => {
             // Handle the dropped item
             let { draggedCard, draggedIndex, taskname } = item
-            console.log("drop this shitttttttt ", draggedCard, " --------", draggedIndex)
             let dropIndex = findDropIndex(monitor)
             handleDrop(draggedCard, monitor, dropIndex, draggedIndex, taskname)
         },
@@ -31,51 +30,9 @@ export function Task({ name, cards }) {
             // console.log(dropRef.current, name, " this is my ref to drop")
             let dropIndex = findDropIndex(monitor)
             //create a empty div in the final target
-            dispatch(addEmptyPreview({ taskname: name, index: dropIndex }))
 
-
-            // const hoverBoundingRect = dropRef.current?.getBoundingClientRect();
-            // // const hoverMiddleY =
-            // //     (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
-            // const clientOffset = monitor.getClientOffset();
-            // const hoverClientY = clientOffset.y - hoverBoundingRect.top;
-            // // console.log(hoverClientY, "apna index value possible", item)
-
-            // let parentxy
-
-            // //find index 
-            // let cardChildren = dropRef.current.children;
-            // let foundIndex = -1;
-            // for (let i = 0; i < cards.length; i++) {
-            //     let dimension = cardChildren[i].getBoundingClientRect()
-
-            //     let topFromDropTask = dimension.top - hoverBoundingRect.top;
-            //     let bottomFromDropTask = dimension.bottom - hoverBoundingRect.top;
-            //     let middleOfCurrentCard = (topFromDropTask + bottomFromDropTask) / 2;
-            //     // console.log(topFromDropTask, bottomFromDropTask, middleOfCurrentCard, hoverClientY)
-
-            //     if (hoverClientY < middleOfCurrentCard) {
-            //         foundIndex = i;
-            //         break;
-            //     }
-            // }
-
-            // if (foundIndex == -1)
-            //     foundIndex = cards.length
-
-            // console.log("found you index", foundIndex)
-
-            // if (drop.current != null || drop.current != undefined)
-            //     parentxy = drop.current.getBoundingClientRect()
-
-            // let aa = monitor.getInitialClientOffset()
-            // let bb = monitor.getInitialSourceClientOffset()
-
-            // let xy = monitor.getClientOffset();
-            // let cc = monitor.getDifferenceFromInitialOffset()
-            // let dd = monitor.getSourceClientOffset()
-
-            // console.log(item, monitor, " hover ho relaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", xy, parentxy, cc, dd)
+            // dispatch empty preview wont work now 
+            // dispatch(addEmptyPreview({ taskname: name, index: dropIndex }))
 
         },
 
@@ -86,13 +43,6 @@ export function Task({ name, cards }) {
         })
     });
 
-    // useEffect(() => {
-    //     console.log("chal gaya betaaaaaaaaaaaaaaaaaaaaaaaaaa", drop, isOver)
-    //     dropRef.current = drop
-    // }, [isOver])
-
-
-
     // dropRef.current = drop
     drop(dropRef)
 
@@ -102,7 +52,6 @@ export function Task({ name, cards }) {
         //     (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
         const clientOffset = monitor.getClientOffset();
         const hoverClientY = clientOffset.y - hoverBoundingRect.top;
-        // console.log(hoverClientY, "apna index value possible", item)
 
         let parentxy
 
@@ -190,7 +139,5 @@ export function Task({ name, cards }) {
                 }
             </div>
         </div>
-
-        // previewObj={checkPreviewHighlight(i)}
     )
 }
