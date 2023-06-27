@@ -1,0 +1,28 @@
+.main{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap : 30px;
+    padding : 20px;
+}
+
+.main_task_create{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border : white dotted thin;
+    padding : 10px;
+    height: fit-content;
+  }
+
+  .main_task_create > input {
+    height : 25px;
+    width: 70%;
+  }
+
+  .main_task_create > button {
+    border : none;
+    padding : 2px;
+    width : 23%;
+    border-radius: 1px;
+    height : 28px;
+  }

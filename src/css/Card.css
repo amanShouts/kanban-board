@@ -1,0 +1,26 @@
+.card_main{
+    background-color: rgb(255, 198, 92);
+    /* border : thin dotted grey; */
+    margin : 10px 5px;
+    height : fit-content;
+    border-radius: 5px;
+    padding : 1px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: margin 0.2s linear;
+}
+
+.card_main_name{
+    font-size: 1.2em;
+    margin-top: 1px;
+    padding-left : 1px;
+    padding-right: 1px;
+}
+
+.card_main_details{
+    height: auto;
+    min-height: 20px;
+    border : white dotted thin;
+    margin : 10px 7px;
+    margin-top: -5px;
+    padding : 2px;
+}

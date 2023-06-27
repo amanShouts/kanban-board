@@ -1,0 +1,47 @@
+.task{
+    background-color: aliceblue;
+    border : thin solid black;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    height: fit-content;
+}
+
+.task_name{
+    text-align: center;
+ 
+    margin-bottom: -5px;
+}
+.task_name_delete{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.task_card_input{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+}
+
+.task_card_input > input{
+    border:none;
+    border-bottom: thin black solid;
+    height : 25px;
+    width : 60%;
+}
+
+hr{
+
+    margin: 15px auto 0px auto;
+}
+.cards{
+    background-color: rgb(223, 198, 198);
+    padding : 6px;
+    padding-bottom: 20px;
+    height: fit-content;
+}
